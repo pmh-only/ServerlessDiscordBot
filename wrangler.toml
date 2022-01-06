@@ -1,0 +1,16 @@
+name = "serverless-discord-bot"
+type = "javascript"
+zone_id = ""
+account_id = "3f5c1e51a6eecd0be8410b949ac69d09"
+route = ""
+workers_dev = true
+compatibility_date = "2022-01-06"
+
+[build]
+command = "yarn && yarn build"
+[build.upload]
+format = "service-worker"
+
+[vars]
+DISCORD_PUBLIC_KEY = "2c9f9be7563878e82336867dcbf7529a10607eb8549c27fac11910d05e63fd22"
+DISCORD_BOT_TOKEN = "OTI4NDQyMzM4MTczMzkwODg4.YdY1Tw.gDaiLiECMbMcmfHGEcTLlJqr_gc"
