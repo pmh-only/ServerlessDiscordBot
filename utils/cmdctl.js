@@ -1,3 +1,5 @@
+#!/bin/node
+
 // cmdctl.js
 // Application Command Control
 
@@ -41,6 +43,37 @@ yargs(hideBin(process.argv))
     }
 
     fetch(`${BASE_URL}/applications/${argv.id}${argv.guild ? '/guilds/' + argv.guild : ''}/commands`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bot ${argv.token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: argv.name,
+        description: argv.description,
+        options: JSON.parse(argv.options)
+      })
+    }).then((res) => res.json())
+      .then(console.log)
+  })
+  .command('update <name> <description> <commandId> [options]', 'Create application command', (yargs) =>
+    yargs
+      .positional('name', { describe: 'Command name', type: 'string' })
+      .positional('description', { describe: 'Command description', type: 'string' })
+      .positional('commandId', { describe: 'Command id', type: 'string' })
+      .positional('options', { describe: 'Command options (json)', type: 'string', default: '[]' })
+  , (argv) => {
+    if (!argv.token) {
+      console.error('You must provide a token with --token')
+      process.exit(1)
+    }
+
+    if (!argv.id) {
+      console.error('You must provide a application id with --id')
+      process.exit(1)
+    }
+
+    fetch(`${BASE_URL}/applications/${argv.id}${argv.guild ? '/guilds/' + argv.guild : ''}/commands/${argv.commandId}`, {
       method: 'POST',
       headers: {
         Authorization: `Bot ${argv.token}`,
