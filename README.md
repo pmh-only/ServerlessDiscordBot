@@ -70,7 +70,12 @@ wrangler publish
 
 ![](https://cdn.discordapp.com/attachments/530043751901429762/931159439296311336/unknown.png)
 
-### 10. done!
+### 10. regist global application command
+```
+node -i <APP_ID> -t <BOT_TOKEN> ./utils/cmdctl.js create ping ping
+```
+
+### 11. done!
 ```
 https://discord.com/api/oauth2/authorize?client_id=<APPLICATION_ID_HERE>&scope=applications.commands
 ```
