@@ -72,7 +72,7 @@ wrangler publish
 
 ### 10. regist global application command
 ```
-node -i <APP_ID> -t <BOT_TOKEN> ./utils/cmdctl.js create ping ping
+node ./utils/cmdctl.js -i <APP_ID> -t <BOT_TOKEN> create ping ping
 ```
 
 ### 11. done!
