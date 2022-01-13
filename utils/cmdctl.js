@@ -30,7 +30,7 @@ yargs(hideBin(process.argv))
     yargs
       .positional('name', { describe: 'Command name', type: 'string' })
       .positional('description', { describe: 'Command description', type: 'string' })
-      .positional('options', { describe: 'Command options (json)', type: 'string', default: '[]' })
+      .positional('options', { describe: 'Command options (json)', type: 'string', default: '{}' })
   , (argv) => {
     if (!argv.token) {
       console.error('You must provide a token with --token')
@@ -61,7 +61,7 @@ yargs(hideBin(process.argv))
       .positional('name', { describe: 'Command name', type: 'string' })
       .positional('description', { describe: 'Command description', type: 'string' })
       .positional('commandId', { describe: 'Command id', type: 'string' })
-      .positional('options', { describe: 'Command options (json)', type: 'string', default: '[]' })
+      .positional('options', { describe: 'Command options (json)', type: 'string', default: '{}' })
   , (argv) => {
     if (!argv.token) {
       console.error('You must provide a token with --token')
